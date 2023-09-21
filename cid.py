@@ -13,6 +13,7 @@ spark = SparkSession.builder.config('spark.driver.extraJavaOptions', '-Duser.tim
 hwc = HiveWarehouseSession.session(spark).build()
 
 try:
+        
         tabela_capitulos = spark.read.format("csv").option("header", "true").option("delimiter", ",").load("file:///mnt/carga_share/origem_datasus/cid/arquivos_cid10/capitulos.csv")
 
         tabela_grupos = spark.read.format("csv").option("header", "true").option("delimiter", ",").load("file:///mnt/carga_share/origem_datasus/cid/arquivos_cid10/grupos.csv")
